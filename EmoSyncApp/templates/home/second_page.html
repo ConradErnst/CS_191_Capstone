@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <img src="{% static 'img/logo.png' %}" alt="Image" class="logo">
+        <nav class="nav-menu">
+            <a href="/group/">Groups</a>
+            <a href="/programs/">Programs</a>
+            <a href="/resources/">Resources</a>
+            <a href="/settings/">Settings</a>
+            <button class="profile-button" onmouseover="changeProfileImage()" onmouseout="restoreProfileImage()">
+                <img id="profileImage" src="{% static 'img/profile.png' %}" alt="Profile Image">
+            </button>            
+        </nav>
+    </div>
+   
+</header>
+
+<div class="facetime">
+    <div id="video-container">
+        <video id="video" autoplay>
+            <source src="{% static 'img/output.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <img id="processed-frame" src="" alt="Processed Frame">
+    <div class="bottom-button-container">
+        <button id="recordButton" class="bottom-button" onclick="toggleRecording()">
+            <img id="buttonImage" src="{% static 'img/mic.png' %}" alt="speaker button">
+        </button>
+    </div>
+</div>
+
+<div class="chatbot">
+    <header>
+        <div class="chat-header-container">
+            <h2>Live Chat</h2>
+        </div>
+    </header>
+    <ul class="chatbox" id="chatbox">
+        <div class="chat incoming">
+            
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Write your message..." required>
+            <button id="send-btn" class="material-symbols-outlined" onclick="sendMessage()">Send</button>
+        </div>
+    </ul>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
